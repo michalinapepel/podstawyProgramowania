@@ -71,12 +71,13 @@ int levelOne(){
             subAnswer =  answer.substr(0,6);
             }
         else {
-            subAnswer = " ";
+            subAnswer = "";
             }        
         if(subAnswer == "rotate"){
-            angle = stoi(answer);
+            string::size_type answerLen;
+            angle = stoi(answer, &answerLen);
             newAngle += angle;
-            if (newAngle >= 360){
+            while (newAngle >= 360){
                 newAngle = newAngle - 360;
             }
         }
