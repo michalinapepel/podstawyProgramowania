@@ -103,7 +103,7 @@ int levelOne(){
     return score;
 }
 
-int main() {
-    levelOne();
-    return 0;
-}
+// int main() {
+//     levelOne();
+//     return 0;
+// }
