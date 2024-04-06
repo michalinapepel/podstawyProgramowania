@@ -5,9 +5,9 @@
 using namespace std;
 int levelOne(){
     int angle = 0, newAngle = 0, count = 0;
-    string answer = "";
     cout<< "POZIOM 1\n\n";
     while (newAngle != 180){
+        string answer = "";
         // CZESC DO ZASTAPIENIA
 
         if (newAngle>=0 && newAngle<=22 || newAngle>=341 && newAngle<=359){
@@ -67,24 +67,22 @@ int levelOne(){
         }
         cin >> answer;
         string subAnswer = "";
-        if (answer.length() > 6){
-            subAnswer =  answer.substr(0,6);
-            }
-        else {
-            subAnswer = "";
-            }        
-        if(subAnswer == "rotate"){
-            string::size_type answerLen;
-            angle = stoi(answer, &answerLen);
-            newAngle += angle;
-            while (newAngle >= 360){
-                newAngle = newAngle - 360;
-            }
-        }
-        else if (answer == "reset")
-        {
-            newAngle = 0;
-        }
+         if (answer.length() > 7){
+             subAnswer =  answer.substr(0,7);
+             }        
+         if(subAnswer == "rotate:"){
+             string::size_type answerLen;
+             string::size_type pos = answer.find(":");
+             angle = stoi(answer.substr(7, answer.length()-7), &answerLen);
+             newAngle += angle;
+             while (newAngle >= 360){
+                 newAngle = newAngle - 360;
+             }
+         }
+         else if (answer == "reset")
+         {
+             newAngle = 0;
+         }
         count++;
         
         // nie dziala w VS CODE
