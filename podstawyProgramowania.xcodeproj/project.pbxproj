@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B5AAC51F2BC57B2100D30898 /* pictures.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5AAC5172BC57B2100D30898 /* pictures.cpp */; };
-		B5AAC5202BC57B2100D30898 /* funSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5AAC5182BC57B2100D30898 /* funSystem.cpp */; };
+		B55A21192BC57F4300345A9C /* pictures.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B55A21172BC57F4300345A9C /* pictures.cpp */; };
+		B55A211C2BC5821A00345A9C /* funSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B55A211A2BC5821A00345A9C /* funSystem.cpp */; };
 		B5AAC5212BC57B2100D30898 /* terminalGame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5AAC51A2BC57B2100D30898 /* terminalGame.cpp */; };
 		B5AAC5222BC57B2100D30898 /* levelOne.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5AAC51B2BC57B2100D30898 /* levelOne.cpp */; };
 		B5AAC5232BC57B2100D30898 /* levelThree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5AAC51C2BC57B2100D30898 /* levelThree.cpp */; };
@@ -28,9 +28,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B55A21172BC57F4300345A9C /* pictures.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = pictures.cpp; sourceTree = "<group>"; };
+		B55A21182BC57F4300345A9C /* pictures.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = pictures.hpp; sourceTree = "<group>"; };
+		B55A211A2BC5821A00345A9C /* funSystem.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = funSystem.cpp; sourceTree = "<group>"; };
+		B55A211B2BC5821A00345A9C /* funSystem.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = funSystem.hpp; sourceTree = "<group>"; };
 		B5AAC50D2BC57AF400D30898 /* podstawyProgramowania */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = podstawyProgramowania; sourceTree = BUILT_PRODUCTS_DIR; };
-		B5AAC5172BC57B2100D30898 /* pictures.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pictures.cpp; sourceTree = "<group>"; };
-		B5AAC5182BC57B2100D30898 /* funSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = funSystem.cpp; sourceTree = "<group>"; };
 		B5AAC5192BC57B2100D30898 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B5AAC51A2BC57B2100D30898 /* terminalGame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = terminalGame.cpp; sourceTree = "<group>"; };
 		B5AAC51B2BC57B2100D30898 /* levelOne.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = levelOne.cpp; sourceTree = "<group>"; };
@@ -52,11 +54,13 @@
 		B5AAC5042BC57AF400D30898 = {
 			isa = PBXGroup;
 			children = (
-				B5AAC5182BC57B2100D30898 /* funSystem.cpp */,
+				B55A211A2BC5821A00345A9C /* funSystem.cpp */,
+				B55A211B2BC5821A00345A9C /* funSystem.hpp */,
 				B5AAC51E2BC57B2100D30898 /* Levels */,
-				B5AAC5172BC57B2100D30898 /* pictures.cpp */,
 				B5AAC5192BC57B2100D30898 /* README.md */,
 				B5AAC51A2BC57B2100D30898 /* terminalGame.cpp */,
+				B55A21172BC57F4300345A9C /* pictures.cpp */,
+				B55A21182BC57F4300345A9C /* pictures.hpp */,
 				B5AAC50E2BC57AF400D30898 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -136,11 +140,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5AAC5202BC57B2100D30898 /* funSystem.cpp in Sources */,
 				B5AAC5212BC57B2100D30898 /* terminalGame.cpp in Sources */,
-				B5AAC51F2BC57B2100D30898 /* pictures.cpp in Sources */,
 				B5AAC5232BC57B2100D30898 /* levelThree.cpp in Sources */,
 				B5AAC5222BC57B2100D30898 /* levelOne.cpp in Sources */,
+				B55A211C2BC5821A00345A9C /* funSystem.cpp in Sources */,
+				B55A21192BC57F4300345A9C /* pictures.cpp in Sources */,
 				B5AAC5242BC57B2100D30898 /* levelTwo.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
