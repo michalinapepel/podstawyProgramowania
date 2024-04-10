@@ -102,8 +102,3 @@ int levelOne(){
     int score = 1;
     return score;
 }
-
-// int main() {
-//     levelOne();
-//     return 0;
-// }

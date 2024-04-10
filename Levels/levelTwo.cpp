@@ -28,8 +28,3 @@ int levelTwo(){
         score = 1;
     return score;
 }
-
-// int main() {
-//     levelTwo();
-//     return 0;
-// }
