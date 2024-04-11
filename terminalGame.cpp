@@ -24,7 +24,7 @@ int menu(string name) {
     
     return level;
 }
-int main(int argc, char* argv[]) {
+int main(int argc, char* argv[]) { 
     string name = argv[1];
     int level = menu(name);
     int win = 0;
