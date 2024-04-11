@@ -38,7 +38,7 @@ int main(int argc, char* argv[]) {
                 //wpisz do pliku 3
                 level = 3;
             }; break;
-            case 3 : if (/*levelThree()*/1 == 1) {
+            case 3 : if (levelThree() == 1) {
                 cout << "Brawo! Udalo ci sie przejsc wszystkie poziomy.";
                 win = 1;
             }; break;
