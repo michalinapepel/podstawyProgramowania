@@ -9,5 +9,6 @@ void changeColor();
 void colorReset();
 void coutNegative(const std::string &s);
 std::array<std::string, 2> getAnswer();
+void postAnswer(std::string text, int time = 2);
 
 #endif /* funSystem_hpp */

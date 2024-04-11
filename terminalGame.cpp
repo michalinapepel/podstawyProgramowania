@@ -42,7 +42,6 @@ int main(int argc, char* argv[]) {
                 cout << "Brawo! Udalo ci sie przejsc wszystkie poziomy.";
                 win = 1;
             }; break;
-            default: 0; break;
         }
         if (win == 1) break;
     }

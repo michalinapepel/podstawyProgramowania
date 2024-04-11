@@ -2,8 +2,7 @@
 
 #include <iostream>
 #include <string>
-#include <chrono>
-#include <thread>
+
 #include "../pictures.hpp"
 #include "../funSystem.hpp"
 
@@ -33,12 +32,10 @@ int levelThree() {
                     amount--;
                 }
             }
-            cout << "Wykonano!" << flush;
-            this_thread::sleep_for(chrono::seconds(2));
+            postAnswer("Wykonano!");
         }
         else {
-            cout << "Nieznane polecenie" << flush;
-            this_thread::sleep_for(chrono::seconds(2));
+            postAnswer("Nieznane polecenie");
         }
     }
     

@@ -11,7 +11,7 @@ int levelTwo(){
     do {
         clearTerminal();
         cout << "POZIOM 2\n\n";
-        cout << birdCage;
+        birdCage();
         if(count == 0){
             cout << "Twoja odpowiedz: ";
         }
@@ -22,9 +22,10 @@ int levelTwo(){
         count++;
     } while (answer != "theme:white");
         clearTerminal();
-        system("Color F0");
         coutNegative("Brawo, uwolniles ptaszka\n\n");
-        coutNegative(birdFree);
+        changeColor();
+        birdFree();
+        colorReset();
         coutNegative("\n\n\n");
         score = 1;
     return score;

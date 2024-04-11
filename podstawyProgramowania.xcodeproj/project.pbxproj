@@ -147,14 +147,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5AAC5212BC57B2100D30898 /* terminalGame.cpp in Sources */,
-				B5AAC5232BC57B2100D30898 /* levelThree.cpp in Sources */,
-				B5AAC5222BC57B2100D30898 /* levelOne.cpp in Sources */,
 				B55A211C2BC5821A00345A9C /* funSystem.cpp in Sources */,
 				B58E99832BC5859300390459 /* levelTwo.cpp in Sources */,
 				B55A21192BC57F4300345A9C /* pictures.cpp in Sources */,
 				B58E99802BC5858300390459 /* levelOne.cpp in Sources */,
 				B58E99862BC5859B00390459 /* levelThree.cpp in Sources */,
-				B5AAC5242BC57B2100D30898 /* levelTwo.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,6 +276,7 @@
 		B5AAC5152BC57AF400D30898 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++20";
 				CODE_SIGN_STYLE = Automatic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -287,6 +285,7 @@
 		B5AAC5162BC57AF400D30898 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++20";
 				CODE_SIGN_STYLE = Automatic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

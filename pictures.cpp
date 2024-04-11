@@ -1,5 +1,7 @@
 #include "pictures.hpp"
-const char *birdCage = R"(
+#include <iostream>
+
+void birdCage() {std::cout << R"(
                  /\
              ___/__\___
             / |  ,_  | \
@@ -8,16 +10,16 @@ const char *birdCage = R"(
            |  | ''|\ |  |
            |^^^^^^^^^^^^|
            ``````````````    
-)";
+)";};
 
-const char *birdFree = R"(
-                 ,_ 
+void birdFree() {std::cout << R"(
+                 ,_
                 >' ) 
                 ( ( \
                 ''|\ 
-)";
+)";};
 
-const char *six1 = R"(
+void six1() {std::cout << R"(
                       ooooooooooo
                     oo          ooo
                    oo             oo
@@ -32,8 +34,8 @@ const char *six1 = R"(
                     oo           oo
                      oo        ooo
                        ooooooooo
-)";
-const char *six2 = R"(
+)";};
+void six2() {std::cout << R"(
                                oooooooo
                              oo      ooooo
                            oo            oooo
@@ -49,8 +51,8 @@ const char *six2 = R"(
               ooo             ooooo
                 oooo       ooo
                     ooooooo
-)";
-const char *six3 = R"(
+)";};
+void six3() {std::cout << R"(
              oooooo               oooooooooo
           ooooo              oooooo         oooo
         ooo                 oo                 oo
@@ -60,8 +62,8 @@ const char *six3 = R"(
          ooo                oo                oo
            oooooooo          ooooo        oooo
                   oooooooooooooooooooooooo     
-)";
-const char *six4 = R"(
+)";};
+void six4() {std::cout << R"(
             ooooooo
           ooooo
         ooo
@@ -76,8 +78,8 @@ const char *six4 = R"(
                    oooooo                ooo
                        ooooo            ooo
                            ooooooooooooo
-)";
-const char *six5 = R"(
+)";};
+void six5() {std::cout << R"(
                         ooooooooo
                       ooo        oo
                      oo           oo
@@ -93,8 +95,8 @@ const char *six5 = R"(
                     ooo          oo
                        ooo    oooo
                          oooooo
-)";
-const char *six6 = R"(
+)";};
+void six6() {std::cout << R"(
                                       ooooooo
                                    ooo       oooo
                               ooooo             ooo
@@ -110,8 +112,8 @@ const char *six6 = R"(
                     oooo            oo
                        ooooo      oo
                           oooooooo
-)";
-const char *six7 = R"(
+)";};
+void six7() {std::cout << R"(
                  ooooooooooooooooooooooooo
              oooo        ooooo         ooooooooo
            oo               oooo               ooo
@@ -121,8 +123,8 @@ const char *six7 = R"(
           oo                 oo                 ooo
            ooooo         ooooo              ooooo
               ooooooooooo               oooooo
-)";
-const char *six8 = R"(
+)";};
+void six8() {std::cout << R"(
                        ooooooooooooo
                     ooo            ooooo
                    ooo                oooooo
@@ -137,4 +139,4 @@ const char *six8 = R"(
                                                     ooo
                                                 ooooo
                                             ooooooo
-)";
+)";};

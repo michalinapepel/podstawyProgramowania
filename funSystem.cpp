@@ -5,6 +5,8 @@
 #include <iostream>
 #include <string>
 #include <array>
+#include <chrono>
+#include <thread>
 using namespace std;
 
 void clearTerminal()
@@ -56,4 +58,9 @@ array<string, 2> getAnswer() {
     }
     
     return answerArray;
+}
+
+void postAnswer(string text, int time) {
+    cout << text << flush;
+    this_thread::sleep_for(chrono::seconds(time));
 }

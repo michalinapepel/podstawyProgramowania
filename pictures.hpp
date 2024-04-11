@@ -2,14 +2,14 @@
 #define pictures_hpp
 
 #include <stdio.h>
-const char *birdCage;
-const char *birdFree;
-const char *six1;
-const char *six2;
-const char *six3;
-const char *six4;
-const char *six5;
-const char *six6;
-const char *six7;
-const char *six8;
+void birdCage();
+void birdFree();
+void six1();
+void six2();
+void six3();
+void six4();
+void six5();
+void six6();
+void six7();
+void six8();
 #endif /* pictures_hpp */
