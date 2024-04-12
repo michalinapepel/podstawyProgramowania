@@ -24,7 +24,7 @@ void changeColor()
 #endif
 }
 
-void colorReset()
+void resetColor()
 {
 #if defined(_WIN32)
   static const HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -38,7 +38,7 @@ void coutNegative(const string &s)
 {
   changeColor();
   cout << s;
-  colorReset();
+  resetColor();
 }
 
 array<string, 2> getAnswer() {
@@ -60,7 +60,7 @@ array<string, 2> getAnswer() {
     return answerArray;
 }
 
-void postAnswer(string text, int time) {
+void displayResponse(string text, int delaySeconds) {
     cout << text << flush;
-    this_thread::sleep_for(chrono::seconds(time));
+    this_thread::sleep_for(chrono::seconds(delaySeconds));
 }

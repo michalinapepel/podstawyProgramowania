@@ -25,7 +25,7 @@ int levelTwo(){
         coutNegative("Brawo, uwolniles ptaszka\n\n");
         changeColor();
         birdFree();
-        colorReset();
+        resetColor();
         coutNegative("\n\n\n");
         score = 1;
     return score;

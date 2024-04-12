@@ -32,10 +32,10 @@ int levelThree() {
                     amount--;
                 }
             }
-            postAnswer("Wykonano!");
+            displayResponse("Wykonano!");
         }
         else {
-            postAnswer("Nieznane polecenie");
+            displayResponse("Nieznane polecenie");
         }
     }
     
