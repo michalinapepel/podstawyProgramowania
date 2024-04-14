@@ -9,18 +9,16 @@ int levelTwo(){
     string answer = "";
     int count = 0;
     do {
+        if(count > 1){
+            displayResponse("\nNieznane polecenie");
+        }
         clearTerminal();
         cout << "POZIOM 2\n\n";
         birdCage();
-        if(count == 0){
-            cout << "Twoja odpowiedz: ";
-        }
-        else{
-            cout << "To byla zla odpowiedz.\nTwoja odpowiedz: ";
-        }
+        cout << "/";
         cin >> answer;
         count++;
-    } while (answer != "theme:white");
+    } while (answer != "theme:light");
         clearTerminal();
         coutNegative("Brawo, uwolniles ptaszka\n\n");
         changeColor();
