@@ -5,7 +5,6 @@
 
 using namespace std;
 int levelTwo(){
-    int score = 0;
     string answer = "";
     int count = 0;
     do {
@@ -25,6 +24,6 @@ int levelTwo(){
         birdFree();
         resetColor();
         coutNegative("\n\n\n");
-        score = 1;
-    return score;
+        displayResponse("");
+    return 1;
 }
