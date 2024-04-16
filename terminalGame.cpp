@@ -2,15 +2,17 @@
 #include <iomanip>
 #include <fstream>
 #include <cstring>
+#include "funSystem.hpp"
 #include "./Levels/levelOne.hpp"
 #include "./Levels/levelTwo.hpp"
 #include "./Levels/levelThree.hpp"
 using namespace std;
 int menu(string name) {
+    clearTerminal();
     int choice = 0;
     int level = 0;
     cout.width(45);
-    cout << right << "\n\n\n\nWitaj " + name;
+    cout << right << "Witaj " + name;
     cout << "!\n\n\n\n\nWybierz:\nNowa gra" << std::setw(7) << "->" << std::setw(6) << "1" << "\nWczytaj gre" << std::setw(4) << "->" << std::setw(6) << "2";
     cin >> choice;
     if (choice == 1){
@@ -57,6 +59,7 @@ int main(int argc, char* argv[]) {
                 level = 3;
             }; break;
             case 3 : if (levelThree() == 1) {
+                clearTerminal();
                 cout << "Brawo! Udalo ci sie przejsc wszystkie poziomy.";
                 win = 1;
             }; break;

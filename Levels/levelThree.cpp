@@ -13,6 +13,7 @@ int levelThree() {
     cin.ignore();
     while (amount > 0) {
         clearTerminal();
+        cout<< "POZIOM 3\n\n";
         cout << "need\nm";
         for (int i = 0; i < amount; i++) {
             cout << "o";
@@ -24,9 +25,7 @@ int levelThree() {
         
 
         if (answer[0] == "text") {
-            //int argumentLength = static_cast<int>(answer[1].length());
             vector<char> argumentArray(answer[1].begin( ), answer[1].end( ));
-            //strcpy(argumentArray, answer[1].c_str());
             for (auto i: argumentArray) {
                 if (i == ' ') {
                     amount--;

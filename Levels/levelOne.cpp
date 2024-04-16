@@ -5,7 +5,8 @@
 #include "../funSystem.hpp"
 using namespace std;
 int levelOne(){
-    int angle = 0, newAngle = 0, count = 0;
+    cin.ignore();
+    int angle = 0, newAngle = 0;
     cout<< "POZIOM 1\n\nsix\n\n";
     while (newAngle != 180){
         switch(newAngle){
