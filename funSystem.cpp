@@ -41,34 +41,37 @@ void coutNegative(const string &s)
   resetColor();
 }
 
+void displayResponse(string text, int delaySeconds) {
+    cout << text << flush;
+    this_thread::sleep_for(chrono::seconds(delaySeconds));
+}
+
 array<string, 2> getAnswer() {
     array<string, 2> answerArray;
     string answer = "";
     answerArray[0] = "";
     answerArray[1] = "";
     string::size_type position = 0;
-    
     cout << "/";
     getline(cin, answer);
-    
-    position = answer.find(":");
-    if (position != 0 && position < 100) {
-        answerArray[0] = answer.substr(0, position);
-        answerArray[1] = answer.substr(position + 1, answer.length());
-    }
-    if (answerArray[0] == "help" && answerArray[1] == "comands") {
-      cout << "Dostepne komendy to:\nhelp\nrotate:(number)\ntext:(chars)\ntheme:(light/dark)";
-    }
-    else if (answerArray[0] == "help" && answerArray[1] == "reset") {
-      answerArray[0] = "reset";
-    }
-    else if (answerArray[0] == "help") {
+    if (answer == "help") {
       cout << "help\n:comands\n:reset";
+      displayResponse("", 3);
+    }
+    else {
+        position = answer.find(":");
+      if (position != 0 && position < 100) {
+          answerArray[0] = answer.substr(0, position);
+          answerArray[1] = answer.substr(position + 1, answer.length());
+      }
+      if (answerArray[0] == "help" && answerArray[1] == "comands") {
+        displayResponse("Dostepne komendy to:\nhelp\nrotate:(number)\ntext:(chars)\ntheme:(light/dark)", 4);
+      }
+      else if (answerArray[0] == "help" && answerArray[1] == "reset") {
+        answerArray[0] = "reset";
+      }
     }
     return answerArray;
 }
 
-void displayResponse(string text, int delaySeconds) {
-    cout << text << flush;
-    this_thread::sleep_for(chrono::seconds(delaySeconds));
-}
+

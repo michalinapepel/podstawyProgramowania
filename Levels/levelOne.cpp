@@ -21,7 +21,7 @@ int levelOne(){
             case 341 ... 359: clearTerminal(); cout << "POZIOM 1\n\nsix\n\n"; six1(); break;
         } 
         array<string, 2> answer = getAnswer();
-        if (answer[0] == "rotate") { //MOZE SWITCH KTORY PRZYJMUJE JESZCZE INNE KOMENDY A NIE TYLKO DOBRA A RESZTA TO NIBY BLEDNA
+        if (answer[0] == "rotate") {
             try {
                 angle = stoi(answer[1]);
                 displayResponse("Wykonano!");
@@ -50,6 +50,8 @@ int levelOne(){
         
     }
     clearTerminal();
-    cout << "POZIOM 1\n\nsix\n\n" << six5;
+    cout << "POZIOM 1\n\nsix\n\n";
+    six5();
+    displayResponse("");
     return 1;
 }

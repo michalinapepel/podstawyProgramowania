@@ -22,7 +22,7 @@ int menu(string name) {
         gameRecord.close(); 
         level = 1;
         clearTerminal();
-        cout << "INSTRUKCJA\n\nTwoje odpowiedzi powinny przyjmowac ponizszy format:\npolecenie:parametr, na przykład" << std::setw(7) << "->"<< std::setw(6) << "theme:dark\n\nWpisz polecenie help, aby zobaczyc dostepne komendy";
+        cout << "INSTRUKCJA\n\nTwoje odpowiedzi powinny przyjmowac ponizszy format:\npolecenie:parametr, na przyklad" << std::setw(7) << "->"<< std::setw(6) << "theme:dark\n\nWpisz polecenie help, aby zobaczyc dostepne komendy";
         displayResponse("", 10);
     }
     else if (choice == 2){
@@ -35,18 +35,18 @@ int menu(string name) {
         if (strcmp(output, "1") == 0 || strcmp(output, "2") == 0 || strcmp(output, "3") == 0) {
             level =  std::atoi(output);
             clearTerminal();
-            cout << "INSTRUKCJA\n\nTwoje odpowiedzi powinny przyjmowac ponizszy format:\npolecenie:parametr, na przykład" << std::setw(7) << "->"<< std::setw(6) << "theme:dark\n\nWpisz polecenie help, aby zobaczyc dostepne komendy";
+            cout << "INSTRUKCJA\n\nTwoje odpowiedzi powinny przyjmowac ponizszy format:\npolecenie:parametr, na przyklad" << std::setw(7) << "->"<< std::setw(6) << "theme:dark\n\nWpisz polecenie help, aby zobaczyc dostepne komendy";
             displayResponse("", 10);
         }
         else {
-            cout << "Nie masz jeszcze swojej gry.\nStworzylismy dla ciebie nowa rozgrywke.";
+            displayResponse("Nie masz jeszcze swojej gry.\nStworzylismy dla ciebie nowa rozgrywke.", 3);
             ofstream gameRecord("gameRecord.txt");
             gameRecord << "";
             gameRecord << "1";
             gameRecord.close(); 
             level = 1;
             clearTerminal();
-            cout << "INSTRUKCJA\n\nTwoje odpowiedzi powinny przyjmowac ponizszy format:\npolecenie:parametr, na przykład" << std::setw(7) << "->"<< std::setw(6) << "theme:dark\n\nWpisz polecenie help, aby zobaczyc dostepne komendy";
+            cout << "INSTRUKCJA\n\nTwoje odpowiedzi powinny przyjmowac ponizszy format:\npolecenie:parametr, na przyklad" << std::setw(7) << "->"<< std::setw(6) << "theme:dark\n\nWpisz polecenie help, aby zobaczyc dostepne komendy";
             displayResponse("", 10);
         }
     }
