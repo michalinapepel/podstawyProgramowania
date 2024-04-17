@@ -13,7 +13,7 @@ int menu(string name) {
     int level = 0;
     cout.width(45);
     cout << right << "Witaj " + name;
-    cout << "!\n\n\n\n\nWybierz:\nNowa gra" << std::setw(7) << "->" << std::setw(6) << "1" << "\nWczytaj gre" << std::setw(4) << "->" << std::setw(6) << "2";
+    cout << "!\n\n\n\n\nWybierz:\nNowa gra" << std::setw(7) << "->" << std::setw(6) << "1" << "\nWczytaj gre" << std::setw(4) << "->" << std::setw(6) << "2" << endl;
     cin >> choice;
     if (choice == 1){
         ofstream gameRecord("gameRecord.txt");
@@ -21,6 +21,9 @@ int menu(string name) {
         gameRecord << "1";
         gameRecord.close(); 
         level = 1;
+        clearTerminal();
+        cout << "INSTRUKCJA\n\nTwoje odpowiedzi powinny przyjmowac ponizszy format:\npolecenie:parametr, na przykład" << std::setw(7) << "->"<< std::setw(6) << "theme:dark\n\nWpisz polecenie help, aby zobaczyc dostepne komendy";
+        displayResponse("", 10)
     }
     else if (choice == 2){
         ifstream gameRecord("gameRecord.txt");
@@ -30,10 +33,21 @@ int menu(string name) {
             gameRecord.close();
         }
         if (strcmp(output, "1") == 0 || strcmp(output, "2") == 0 || strcmp(output, "3") == 0) {
-            level =  std::atoi(output); 
+            level =  std::atoi(output);
+            clearTerminal();
+            cout << "INSTRUKCJA\n\nTwoje odpowiedzi powinny przyjmowac ponizszy format:\npolecenie:parametr, na przykład" << std::setw(7) << "->"<< std::setw(6) << "theme:dark\n\nWpisz polecenie help, aby zobaczyc dostepne komendy";
+            displayResponse("", 10)
         }
         else {
             cout << "Nie masz jeszcze swojej gry.\nStworzylismy dla ciebie nowa rozgrywke.";
+            ofstream gameRecord("gameRecord.txt");
+            gameRecord << "";
+            gameRecord << "1";
+            gameRecord.close(); 
+            level = 1;
+            clearTerminal();
+            cout << "INSTRUKCJA\n\nTwoje odpowiedzi powinny przyjmowac ponizszy format:\npolecenie:parametr, na przykład" << std::setw(7) << "->"<< std::setw(6) << "theme:dark\n\nWpisz polecenie help, aby zobaczyc dostepne komendy";
+            displayResponse("", 10)
         }
     }
     

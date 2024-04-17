@@ -9,7 +9,7 @@ int levelTwo(){
     int count = 0;
     do {
         if(count > 1){
-            displayResponse("\nNieznane polecenie");
+            displayResponse("\nBledne lub nieznane polecenie");
         }
         clearTerminal();
         cout << "POZIOM 2\n\n";

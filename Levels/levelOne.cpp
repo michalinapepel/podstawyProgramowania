@@ -21,7 +21,7 @@ int levelOne(){
             case 341 ... 359: clearTerminal(); cout << "POZIOM 1\n\nsix\n\n"; six1(); break;
         } 
         array<string, 2> answer = getAnswer();
-        if (answer[0] == "rotate") {
+        if (answer[0] == "rotate") { //MOZE SWITCH KTORY PRZYJMUJE JESZCZE INNE KOMENDY A NIE TYLKO DOBRA A RESZTA TO NIBY BLEDNA
             try {
                 angle = stoi(answer[1]);
                 displayResponse("Wykonano!");
@@ -45,7 +45,7 @@ int levelOne(){
              displayResponse("Resetujemy dla ciebie poziom.");
         }
         else {
-            displayResponse("Nieznane polecenie");
+            displayResponse("Bledne lub nieznane polecenie");
         }
         
     }

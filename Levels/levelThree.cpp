@@ -34,7 +34,7 @@ int levelThree() {
             displayResponse("Wykonano!");
         }
         else {
-            displayResponse("Nieznane polecenie");
+            displayResponse("Bledne lub nieznane polecenie");
         }
     }
     
