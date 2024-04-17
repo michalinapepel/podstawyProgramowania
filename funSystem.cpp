@@ -56,13 +56,13 @@ array<string, 2> getAnswer() {
         answerArray[0] = answer.substr(0, position);
         answerArray[1] = answer.substr(position + 1, answer.length());
     }
-    if (strcmp(answer[0], "help") && strcmp(answer[1], "comands")) {
+    if (answerArray[0] == "help" && answerArray[1] == "comands") {
       cout << "Dostepne komendy to:\nhelp\nrotate:(number)\ntext:(chars)\ntheme:(light/dark)";
     }
-    else if (strcmp(answer[0], "help") && strcmp(answer[1], "reset")) {
-      answer[0] = "reset";
+    else if (answerArray[0] == "help" && answerArray[1] == "reset") {
+      answerArray[0] = "reset";
     }
-    else if (strcmp(answer[0], "help")) {
+    else if (answerArray[0] == "help") {
       cout << "help\n:comands\n:reset";
     }
     return answerArray;

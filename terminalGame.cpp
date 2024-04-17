@@ -23,7 +23,7 @@ int menu(string name) {
         level = 1;
         clearTerminal();
         cout << "INSTRUKCJA\n\nTwoje odpowiedzi powinny przyjmowac ponizszy format:\npolecenie:parametr, na przykład" << std::setw(7) << "->"<< std::setw(6) << "theme:dark\n\nWpisz polecenie help, aby zobaczyc dostepne komendy";
-        displayResponse("", 10)
+        displayResponse("", 10);
     }
     else if (choice == 2){
         ifstream gameRecord("gameRecord.txt");
@@ -36,7 +36,7 @@ int menu(string name) {
             level =  std::atoi(output);
             clearTerminal();
             cout << "INSTRUKCJA\n\nTwoje odpowiedzi powinny przyjmowac ponizszy format:\npolecenie:parametr, na przykład" << std::setw(7) << "->"<< std::setw(6) << "theme:dark\n\nWpisz polecenie help, aby zobaczyc dostepne komendy";
-            displayResponse("", 10)
+            displayResponse("", 10);
         }
         else {
             cout << "Nie masz jeszcze swojej gry.\nStworzylismy dla ciebie nowa rozgrywke.";
@@ -47,7 +47,7 @@ int menu(string name) {
             level = 1;
             clearTerminal();
             cout << "INSTRUKCJA\n\nTwoje odpowiedzi powinny przyjmowac ponizszy format:\npolecenie:parametr, na przykład" << std::setw(7) << "->"<< std::setw(6) << "theme:dark\n\nWpisz polecenie help, aby zobaczyc dostepne komendy";
-            displayResponse("", 10)
+            displayResponse("", 10);
         }
     }
     
