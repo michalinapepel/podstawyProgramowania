@@ -2,6 +2,8 @@
 #include <vector>
 #include <iostream>
 #include <string>
+#include <algorithm>
+#include <cctype>
 
 #include "../pictures.hpp"
 #include "../funSystem.hpp"
@@ -19,11 +21,16 @@ int levelThree() {
             cout << "o";
         }
         cout << "re\nspace\n\n";
-        
-        
         array<string, 2> answer = getAnswer();
-        
-
+        auto ans = [&answer] {
+            answer[0].erase(
+                std::remove_if(answer[0].begin(), answer[0].end(), ::isspace),
+                answer[0].end());
+            answer[1].erase(
+                std::remove_if(answer[1].begin(), answer[1].end(), ::isspace),
+                answer[1].end());
+        };
+        ans();
         if (answer[0] == "text") {
             vector<char> argumentArray(answer[1].begin( ), answer[1].end( ));
             for (auto i: argumentArray) {

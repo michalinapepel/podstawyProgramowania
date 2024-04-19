@@ -1,6 +1,8 @@
+#include "levelOne.hpp"
 #include <iostream>
 #include <string>
-#include "levelOne.hpp"
+#include <algorithm>
+#include <cctype>
 #include "../pictures.hpp"
 #include "../funSystem.hpp"
 using namespace std;
@@ -21,6 +23,15 @@ int levelOne(){
             case 341 ... 359: clearTerminal(); cout << "POZIOM 1\n\nsix\n\n"; six1(); break;
         } 
         array<string, 2> answer = getAnswer();
+        auto ans = [&answer] {
+            answer[0].erase(
+                std::remove_if(answer[0].begin(), answer[0].end(), ::isspace),
+                answer[0].end());
+            answer[1].erase(
+                std::remove_if(answer[1].begin(), answer[1].end(), ::isspace),
+                answer[1].end());
+        };
+        ans();
         if (answer[0] == "rotate") {
             try {
                 angle = stoi(answer[1]);

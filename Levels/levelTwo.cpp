@@ -1,5 +1,7 @@
 #include "levelTwo.hpp"
 #include <iostream>
+#include <algorithm>
+#include <cctype>
 #include "../pictures.hpp"
 #include "../funSystem.hpp"
 
@@ -15,15 +17,19 @@ int levelTwo(){
         cout << "POZIOM 2\n\n";
         birdCage();
         cout << "/";
-        cin >> answer;
+        getline(cin, answer);
+        auto ans = [&answer] {
+            answer.erase(
+                std::remove_if(answer.begin(), answer.end(), ::isspace),
+                answer.end());};
+        ans();
         count++;
     } while (answer != "theme:light");
         clearTerminal();
-        coutNegative("Brawo, uwolniles ptaszka\n\n");
         changeColor();
+        cout << "Brawo, uwolniles ptaszka\n\n";
         birdFree();
         resetColor();
-        coutNegative("\n\n\n");
         displayResponse("");
     return 1;
 }
