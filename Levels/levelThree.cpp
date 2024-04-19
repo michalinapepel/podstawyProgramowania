@@ -26,9 +26,6 @@ int levelThree() {
             answer[0].erase(
                 std::remove_if(answer[0].begin(), answer[0].end(), ::isspace),
                 answer[0].end());
-            answer[1].erase(
-                std::remove_if(answer[1].begin(), answer[1].end(), ::isspace),
-                answer[1].end());
         };
         ans();
         if (answer[0] == "text") {
