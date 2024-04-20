@@ -37,6 +37,7 @@ int levelThree() {
             }
             displayResponse("Wykonano!");
         }
+        else if (answer[0] == "help"){}
         else {
             displayResponse("Bledne lub nieznane polecenie");
         }

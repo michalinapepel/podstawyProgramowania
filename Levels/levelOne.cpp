@@ -53,6 +53,7 @@ int levelOne(){
                 newAngle = newAngle - 360;
             }
         }
+        else if (answer[0] == "help"){}
         else if (answer[0] == "reset")
         {
             newAngle = 0;
