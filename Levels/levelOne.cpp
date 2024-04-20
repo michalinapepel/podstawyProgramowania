@@ -5,7 +5,9 @@
 #include <cctype>
 #include "../pictures.hpp"
 #include "../funSystem.hpp"
+
 using namespace std;
+
 int levelOne(){
     cin.ignore();
     int angle = 0, newAngle = 0;
@@ -22,6 +24,7 @@ int levelOne(){
             case 299 ... 340: clearTerminal(); cout << "POZIOM 1\n\nsix\n\n"; six8(); break;
             case 341 ... 359: clearTerminal(); cout << "POZIOM 1\n\nsix\n\n"; six1(); break;
         } 
+        
         array<string, 2> answer = getAnswer();
         auto ans = [&answer] {
             answer[0].erase(
@@ -45,15 +48,15 @@ int levelOne(){
                 angle = 0;
                 displayResponse("Podano zly parametr - liczba jest zbyt duza.", 3);
             }
-             newAngle += angle;
-             while (newAngle >= 360){
-                 newAngle = newAngle - 360;
-             } 
+            newAngle += angle;
+            while (newAngle >= 360){
+                newAngle = newAngle - 360;
+            }
         }
         else if (answer[0] == "reset")
         {
-             newAngle = 0;
-             displayResponse("Resetujemy dla ciebie poziom.");
+            newAngle = 0;
+            displayResponse("Resetujemy dla ciebie poziom.");
         }
         else {
             displayResponse("Bledne lub nieznane polecenie");

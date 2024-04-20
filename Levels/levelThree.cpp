@@ -41,6 +41,8 @@ int levelThree() {
             displayResponse("Bledne lub nieznane polecenie");
         }
     }
-    
+    clearTerminal();
+    cout << "POZIOM 3\n\nneed\nmre\n\n";;
+    displayResponse("");
     return 1;
 }

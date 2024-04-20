@@ -6,7 +6,10 @@
 #include "../funSystem.hpp"
 
 using namespace std;
+
 int levelTwo(){
+    cin.ignore();
+    cout << flush;
     string answer = "";
     int count = 0;
     do {
@@ -27,7 +30,7 @@ int levelTwo(){
     } while (answer != "theme:light");
         clearTerminal();
         changeColor();
-        cout << "Brawo, uwolniles ptaszka\n\n";
+        cout << "Brawo, uwolniles ptaszka\n\n\033[K";
         birdFree();
         resetColor();
         displayResponse("");
