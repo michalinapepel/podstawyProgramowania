@@ -1,6 +1,7 @@
 #include "funSystem.hpp"
 #ifdef _WIN32
 #include <Windows.h>
+#include <stdlib.h>
 #endif
 #include <iostream>
 #include <cstring>
@@ -27,8 +28,9 @@ void changeColor()
 void resetColor()
 {
 #if defined(_WIN32)
-  static const HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
-  SetConsoleTextAttribute(handle, 7);
+  // static const HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
+  // SetConsoleTextAttribute(handle, 7);
+  system("Color F0");
 #elif defined(__linux__) || defined(__APPLE__)
   cout << "\033[0m";
 #endif
@@ -42,7 +44,7 @@ void coutNegative(const string &s)
 }
 
 void displayResponse(string text, int delaySeconds) {
-    cout << text << flush;
+    cout << endl << text << flush;
     this_thread::sleep_for(chrono::seconds(delaySeconds));
 }
 
@@ -55,7 +57,7 @@ array<string, 2> getAnswer() {
     cout << "/";
     getline(cin, answer);
     if (answer == "help") {
-      cout << "help\n:comands\n:reset";
+      cout << "help\n:commands\n:reset";
       displayResponse("", 3);
     }
     else {
@@ -64,7 +66,7 @@ array<string, 2> getAnswer() {
           answerArray[0] = answer.substr(0, position);
           answerArray[1] = answer.substr(position + 1, answer.length());
       }
-      if (answerArray[0] == "help" && answerArray[1] == "comands") {
+      if (answerArray[0] == "help" && answerArray[1] == "commands") {
         displayResponse("Dostepne komendy to:\nhelp\nrotate:(number)\ntext:(chars)\ntheme:(light/dark)", 4);
       }
       else if (answerArray[0] == "help" && answerArray[1] == "reset") {
