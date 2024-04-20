@@ -18,8 +18,9 @@ void clearTerminal()
 void changeColor()
 {
 #if defined(_WIN32)
-  static const HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
-  SetConsoleTextAttribute(handle, 240);
+//  static const HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
+//  SetConsoleTextAttribute(handle, 240);
+    system("Color F0");
 #elif defined(__linux__) || defined(__APPLE__)
   cout << "\033[30;107m";
 #endif
@@ -28,9 +29,9 @@ void changeColor()
 void resetColor()
 {
 #if defined(_WIN32)
-  // static const HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
-  // SetConsoleTextAttribute(handle, 7);
-  system("Color F0");
+// static const HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
+// SetConsoleTextAttribute(handle, 7);
+    system("Color 0F");
 #elif defined(__linux__) || defined(__APPLE__)
   cout << "\033[0m";
 #endif
@@ -57,8 +58,9 @@ array<string, 2> getAnswer() {
     cout << "/";
     getline(cin, answer);
     if (answer == "help") {
-      cout << "help\n:commands\n:reset";
-      displayResponse("", 3);
+        cout << "help\n:commands\n:reset";
+        answerArray[0] = "help";
+        displayResponse("", 3);
     }
     else {
         position = answer.find(":");

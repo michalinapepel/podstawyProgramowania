@@ -8,31 +8,40 @@
 using namespace std;
 
 int levelTwo(){
+    array<string, 2> answer;
     cin.ignore();
-    cout << flush;
-    string answer = "";
-    int count = 0;
     do {
-        if(count > 1){
-            displayResponse("\nBledne lub nieznane polecenie");
-        }
         clearTerminal();
         cout << "POZIOM 2\n\n";
         birdCage();
-        cout << "/";
-        getline(cin, answer);
+        answer = getAnswer();
         auto ans = [&answer] {
-            answer.erase(
-                std::remove_if(answer.begin(), answer.end(), ::isspace),
-                answer.end());};
+            answer[0].erase(
+                std::remove_if(answer[0].begin(), answer[0].end(), ::isspace),
+                answer[0].end());
+            answer[1].erase(
+                std::remove_if(answer[1].begin(), answer[1].end(), ::isspace),
+                answer[1].end());
+        };
         ans();
-        count++;
-    } while (answer != "theme:light");
+        if(answer[0] == "help") {}
+        else if (answer[0] == "reset")
+        {
+            displayResponse("Resetujemy dla ciebie poziom.");
+        }
+        else if(answer[0] == "theme" && (answer[1] == "light"||answer[1] == "dark")) {
+            displayResponse("Wykonano!");
+        }
+        else if (answer[0] != "theme") {
+            displayResponse("\nBledne lub nieznane polecenie");
+        }
+    } while (answer[0] != "theme" && answer[1] != "light");
         clearTerminal();
         changeColor();
-        cout << "Brawo, uwolniles ptaszka\n\n\033[K";
+        cout << "Brawo, uwolniles ptaszka\n\n";
         birdFree();
         resetColor();
         displayResponse("");
     return 1;
 }
+

@@ -37,13 +37,16 @@ int levelThree() {
             }
             displayResponse("Wykonano!");
         }
-        else if (answer[0] == "help"){}
+        else if (answer[0] == "help") {}
+        else if (answer[0] == "reset") {
+            displayResponse("Resetujemy dla ciebie poziom.");
+        }
         else {
             displayResponse("Bledne lub nieznane polecenie");
         }
     }
     clearTerminal();
-    cout << "POZIOM 3\n\nneed\nmre\n\n";;
+    cout << "POZIOM 3\n\nneed\nmre\nspace\n\n";
     displayResponse("");
     return 1;
 }
