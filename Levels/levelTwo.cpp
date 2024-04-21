@@ -9,7 +9,7 @@ using namespace std;
 
 int levelTwo(){
     array<string, 2> answer;
-    cin.ignore();
+    
     do {
         clearTerminal();
         cout << "POZIOM 2\n\n";
@@ -17,31 +17,38 @@ int levelTwo(){
         answer = getAnswer();
         auto ans = [&answer] {
             answer[0].erase(
-                std::remove_if(answer[0].begin(), answer[0].end(), ::isspace),
-                answer[0].end());
+                            std::remove_if(answer[0].begin(), answer[0].end(), ::isspace),
+                            answer[0].end());
             answer[1].erase(
-                std::remove_if(answer[1].begin(), answer[1].end(), ::isspace),
-                answer[1].end());
+                            std::remove_if(answer[1].begin(), answer[1].end(), ::isspace),
+                            answer[1].end());
         };
         ans();
-        if(answer[0] == "help") {}
-        else if (answer[0] == "reset")
-        {
-            displayResponse("Resetujemy dla ciebie poziom.");
-        }
-        else if(answer[0] == "theme" && (answer[1] == "light"||answer[1] == "dark")) {
+        
+        if (arg2 == "-d" || arg2 == "-ngd") { if (answer[0] == "dev") { return 0; } }
+        if (answer[0] == "theme" && (answer[1] == "light"|| answer[1] == "dark")) {
             displayResponse("Wykonano!");
         }
-        else if (answer[0] != "theme") {
-            displayResponse("\nBledne lub nieznane polecenie");
+        else if (answer[0] == "theme") displayResponse("[!] Podano nieprawidlowy parametr: polecenie /theme go nie akceptuje!", 3);
+        else if (answer[0] == "game") {
+            if (answer[1] == "menu") { return 0; }
+            if (answer[1] == "resetall") { return 0; }
         }
-    } while (answer[0] != "theme" && answer[1] != "light");
-        clearTerminal();
-        changeColor();
-        cout << "Brawo, uwolniles ptaszka\n\n";
-        birdFree();
-        resetColor();
-        displayResponse("");
+        else if (answer[0] == "help") {}
+        else if (answer[0] == "rotate") { displayUnsupportedResponse("rotate"); }
+        else if (answer[0] == "select") { displayUnsupportedResponse("select"); }
+        else if (answer[0] == "text") { displayUnsupportedResponse("text"); }
+        else { displayUnsupportedResponse(""); }
+        
+    } while (answer[0] != "theme" || answer[1] != "light");
+    
+    clearTerminal();
+    changeColor();
+    cout << "POZIOM 2\n\n";
+    birdFree();
+    cout << "\n\nBrawo, uwolniles ptaszka!";
+    resetColor();
+    displayResponse("");
     return 1;
 }
 

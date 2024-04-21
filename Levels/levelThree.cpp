@@ -12,7 +12,6 @@ using namespace std;
 
 int levelThree() {
     int amount = 10;
-    cin.ignore();
     while (amount > 0) {
         clearTerminal();
         cout<< "POZIOM 3\n\n";
@@ -28,6 +27,8 @@ int levelThree() {
                 answer[0].end());
         };
         ans();
+        
+        if (arg2 == "-d" || arg2 == "-ngd") { if (answer[0] == "dev") { return 0; } }
         if (answer[0] == "text") {
             vector<char> argumentArray(answer[1].begin( ), answer[1].end( ));
             for (auto i: argumentArray) {
@@ -37,16 +38,20 @@ int levelThree() {
             }
             displayResponse("Wykonano!");
         }
+        else if (answer[0] == "game") {
+            if (answer[1] == "menu") { return 0; }
+            if (answer[1] == "reset") { amount = 10; }
+            if (answer[1] == "resetall") { return 0; }
+        }
         else if (answer[0] == "help") {}
-        else if (answer[0] == "reset") {
-            displayResponse("Resetujemy dla ciebie poziom.");
-        }
-        else {
-            displayResponse("Bledne lub nieznane polecenie");
-        }
+        else if (answer[0] == "rotate") { displayUnsupportedResponse("rotate"); }
+        else if (answer[0] == "select") { displayUnsupportedResponse("select"); }
+        else if (answer[0] == "text") { displayUnsupportedResponse("text"); }
+        else if (answer[0] == "theme") { displayUnsupportedResponse("theme"); }
+        else { displayUnsupportedResponse(""); }
     }
     clearTerminal();
     cout << "POZIOM 3\n\nneed\nmre\nspace\n\n";
-    displayResponse("");
+    displayResponse("Chyba byles glodny - zjadles wszystkie ooooo!");
     return 1;
 }

@@ -5,10 +5,16 @@
 #include <string>
 #include <array>
 void clearTerminal();
+void displayResponse(std::string text, int delaySeconds = 2);
 void changeColor();
 void resetColor();
-void coutNegative(const std::string &s);
+void displayInstruction();
+void displayGoodbye();
+extern int level;
+extern std::string arg1;
+extern std::string arg2;
+void menu(std::string name);
 std::array<std::string, 2> getAnswer();
-void displayResponse(std::string text, int delaySeconds = 2);
+void displayUnsupportedResponse(std::string command);
 
 #endif /* funSystem_hpp */

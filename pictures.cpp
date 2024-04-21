@@ -2,6 +2,8 @@
 #include <iostream>
 
 void birdCage() {std::cout << R"(
+          Uratuj ptaszka!
+
                  /\
              ___/__\___
             / |  ,_  | \
@@ -20,6 +22,8 @@ void birdFree() {std::cout << R"(
 )";};
 
 void six1() {std::cout << R"(
+                          six
+
                       ooooooooooo
                     oo          ooo
                    oo             oo
@@ -36,6 +40,8 @@ void six1() {std::cout << R"(
                        ooooooooo
 )";};
 void six2() {std::cout << R"(
+                          six
+
                                oooooooo
                              oo      ooooo
                            oo            oooo
@@ -53,6 +59,8 @@ void six2() {std::cout << R"(
                     ooooooo
 )";};
 void six3() {std::cout << R"(
+                          six
+
              oooooo               oooooooooo
           ooooo              oooooo         oooo
         ooo                 oo                 oo
@@ -64,6 +72,8 @@ void six3() {std::cout << R"(
                   oooooooooooooooooooooooo     
 )";};
 void six4() {std::cout << R"(
+                          six
+
             ooooooo
           ooooo
         ooo
@@ -80,6 +90,8 @@ void six4() {std::cout << R"(
                            ooooooooooooo
 )";};
 void six5() {std::cout << R"(
+                          six
+
                         ooooooooo
                       ooo        oo
                      oo           oo
@@ -97,6 +109,8 @@ void six5() {std::cout << R"(
                          oooooo
 )";};
 void six6() {std::cout << R"(
+                          six
+
                                       ooooooo
                                    ooo       oooo
                               ooooo             ooo
@@ -114,6 +128,8 @@ void six6() {std::cout << R"(
                           oooooooo
 )";};
 void six7() {std::cout << R"(
+                          six
+
                  ooooooooooooooooooooooooo
              oooo        ooooo         ooooooooo
            oo               oooo               ooo
@@ -125,6 +141,8 @@ void six7() {std::cout << R"(
               ooooooooooo               oooooo
 )";};
 void six8() {std::cout << R"(
+                          six
+
                        ooooooooooooo
                     ooo            ooooo
                    ooo                oooooo

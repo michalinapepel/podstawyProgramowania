@@ -6,60 +6,65 @@
 #include "./Levels/levelOne.hpp"
 #include "./Levels/levelTwo.hpp"
 #include "./Levels/levelThree.hpp"
+
 using namespace std;
-int menu(string name) {
-    clearTerminal();
-    int choice = 0;
-    int level = 0;
-    cout.width(45);
-    cout << right << "Witaj " + name;
-    cout << "!\n\n\n\n\nWybierz:\nNowa gra" << std::setw(7) << "->" << std::setw(6) << "1" << "\nWczytaj gre" << std::setw(4) << "->" << std::setw(6) << "2" << endl;
-    cin >> choice;
-    if (choice == 1){
-        ofstream gameRecord("gameRecord.txt");
-        gameRecord << "";
-        gameRecord << "1";
-        gameRecord.close(); 
-        level = 1;
-        clearTerminal();
-        cout << "INSTRUKCJA\n\nTwoje odpowiedzi powinny przyjmowac ponizszy format:\npolecenie:parametr, na przyklad" << std::setw(7) << "->"<< std::setw(6) << "theme:dark\n\nWpisz polecenie help, aby zobaczyc dostepne komendy";
-        displayResponse("", 10);
-    }
-    else if (choice == 2){
-        ifstream gameRecord("gameRecord.txt");
-        char output[] = " ";
-        if (gameRecord.is_open()) {
-            gameRecord.get(output[0]);
-            gameRecord.close();
-        }
-        if (strcmp(output, "1") == 0 || strcmp(output, "2") == 0 || strcmp(output, "3") == 0) {
-            level =  std::atoi(output);
-            clearTerminal();
-            cout << "INSTRUKCJA\n\nTwoje odpowiedzi powinny przyjmowac ponizszy format:\npolecenie:parametr, na przyklad" << std::setw(7) << "->"<< std::setw(6) << "theme:dark\n\nWpisz polecenie help, aby zobaczyc dostepne komendy";
-            displayResponse("", 10);
-        }
-        else {
-            displayResponse("Nie masz jeszcze swojej gry.\nStworzylismy dla ciebie nowa rozgrywke.", 3);
-            ofstream gameRecord("gameRecord.txt");
-            gameRecord << "";
-            gameRecord << "1";
-            gameRecord.close(); 
-            level = 1;
-            clearTerminal();
-            cout << "INSTRUKCJA\n\nTwoje odpowiedzi powinny przyjmowac ponizszy format:\npolecenie:parametr, na przyklad" << std::setw(7) << "->"<< std::setw(6) << "theme:dark\n\nWpisz polecenie help, aby zobaczyc dostepne komendy";
-            displayResponse("", 10);
-        }
-    }
+
+// Konfiguracja aplikacji
+
+struct config
+{
+    string arg1 = "Nieznajomy"; // Imie uzytkownika
+    string arg2 = "";           // Flaga deweloperska
+};
+
+config parse_command_params(char** argv)
+{
+    config cfg;
+
+    if(!argv[1]) { return cfg; }
+    cfg.arg1 = argv[1];
     
-    return level;
+    if(!argv[2]) { return cfg; }
+    cfg.arg2 = argv[2];
+
+    return cfg;
 }
 
-int main(int argc, char* argv[]) { 
-    string name = argv[1];
-    int level = menu(name);
+// Funkcja witajaca uzytkownika (flaga 'ng' blokuje)
+
+void displayGreeting(string name) {
+    clearTerminal();
+    displayResponse("Witaj " + name + ".", 3);
+    clearTerminal();
+    displayResponse("Zacznijmy od krotkiej instrukcji.", 5);
+    displayInstruction();
+    clearTerminal();
+    displayResponse("Chodzmy teraz do menu glownego.\nJuz teraz sprawdzisz swoja umiejetnosc obslugi aplikacji :)", 7);
+}
+
+
+
+// Glowna czesc aplikacji
+
+int main(int argc, char* argv[]) {
+    /* Utworzenie struktury pozwalajacej na uruchomienie aplikacji z parametrami lub bez
+       Pierwszy parametr arg1 to imie uzytkownika
+       Drugi paramentr arg2 'ng' pozwala na pominiecie powitania (ng=NoGreeting) */
+    config cfg;
+    
+    try { cfg = parse_command_params(argv); }
+    catch(std::exception const& e) { return EXIT_FAILURE; }
+    
+    if (cfg.arg2 != "-ng" && cfg.arg2 != "-ngd") { displayGreeting(cfg.arg1); }
+    arg1 = cfg.arg1;
+    arg2 = cfg.arg2;
+    
+    // Petla sterujaca przebigem aplikacji - przelacza poziomy
     int win = 0;
-    while (true){
+    while (win == 0){
         switch(level){
+            case 0 :
+                menu(arg1); break;
             case 1 : if (levelOne() == 1) {
                 ofstream gameRecord("gameRecord.txt");
                 gameRecord << "" << "2";
@@ -74,11 +79,24 @@ int main(int argc, char* argv[]) {
             }; break;
             case 3 : if (levelThree() == 1) {
                 clearTerminal();
-                cout << "Brawo! Udalo ci sie przejsc wszystkie poziomy.";
+                cout << R"(
+            --------------
+            | BRAWOOOOO! |
+            --------------
+Udalo Ci sie przejsc wszystkie poziomy.
+
+
+
+
+            Made with <3 by
+     Michalina Pepel & Rafal Kraz
+
+
+
+)";
                 win = 1;
             }; break;
         }
-        if (win == 1) break;
     }
     return 0;
 }
