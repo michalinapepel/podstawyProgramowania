@@ -4,9 +4,11 @@
 #include <stdlib.h>
 #endif
 #include <iostream>
+#include <algorithm>
 #include <fstream>
 #include <cstring>
 #include <array>
+#include <iomanip>
 #include <chrono>
 #include <thread>
 using namespace std;
@@ -86,7 +88,7 @@ void menu(string name) {
         cout << "-------------------\n";
         cout << "|   MENU GLOWNE   |\n";
         cout << "-------------------\n\n";
-        cout << "Co chcesz zrobic?\nNowa gra" << std::setw(7) << "->" << std::setw(6) << "1" << "\nWczytaj gre" << std::setw(4) << "->" << std::setw(6) << "2" << "\n\n";
+        cout << "Jak chcesz grac?\nNowa gra" << std::setw(7) << "->" << std::setw(6) << "1" << "\nWczytaj gre" << std::setw(4) << "->" << std::setw(6) << "2" << "\n\n";
         cout << "#TIP: Polecenie /help pomoze Ci, jesli utknales\n\n";
         array<string, 2> answer;
         answer = getAnswer();
@@ -190,7 +192,7 @@ array<string, 2> getAnswer() {
             displayResponse("help\n:commands\t#Wyswietla dostepne polecenia\n:instruction\t#Wyswietla instrukcje obslugi gry", 4);
         }
         else if (answerArray[1] == "commands") {
-            displayResponse("Dostepne komendy to:\ngame:(exit|menu|reset|resetall)\t#Umozliwia sterowanie gra\nhelp:(commands|instruction)\t#Wyswietla pomoc\nrotate:(number)\t\t\t#Obraca widok\nselect:(number)\t\t\t#Wybiera jeden z dostepnych elementow\ntext:(chars)\t\t\t#Wpisuje tekst\ntheme:(light/dark)\t\t#Zmienia motyw", 7);
+            displayResponse("Dostepne komendy to:\ngame:(exit|menu|reset|resetall)\t#Umozliwia sterowanie gra\nhelp:(commands|instruction)\t#Wyswietla pomoc\nrotate:(number)\t\t\t#Obraca widok\nselect:(number)\t\t\t#Wybiera jeden z dostepnych elementow\ntext:(chars)\t\t\t#Wpisuje tekst\ntheme:(light/dark)\t\t#Zmienia motyw", 8);
         }
         else if (answerArray[1] == "instruction") { displayInstruction(); }
         else { displayResponse("[!] Podano nieprawidlowy parametr: polecenie /help go nie akceptuje", 3); }
