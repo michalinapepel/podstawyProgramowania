@@ -47,8 +47,8 @@ int levelTwo(){
     cout << "POZIOM 2\n\n";
     birdFree();
     cout << "\n\nBrawo, uwolniles ptaszka!";
-    resetColor();
     displayResponse("");
+    resetColor();
     return 1;
 }
 

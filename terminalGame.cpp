@@ -39,7 +39,7 @@ void displayGreeting(string name) {
     displayResponse("Zacznijmy od krotkiej instrukcji.", 5);
     displayInstruction();
     clearTerminal();
-    displayResponse("Chodzmy teraz do menu glownego.\nJuz teraz sprawdzisz swoja umiejetnosc obslugi aplikacji :)", 7);
+    displayResponse("Przejdziemy teraz do menu glownego.\nJuz teraz sprawdzisz swoja umiejetnosc obslugi aplikacji :)", 7);
 }
 
 
