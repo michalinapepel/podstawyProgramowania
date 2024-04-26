@@ -246,5 +246,5 @@ void displayUnsupportedResponse(string command) {
     else if (command == "select") { displayResponse("[?] Tu nie ma nic do wyboru"); }
     else if (command == "text") { displayResponse("[?] Nie ma gdzie tego wyswietlic"); }
     else if (command == "theme") { displayResponse("[?] Zostanmy przy aktualnym motywie"); }
-    else { displayResponse("[!] Bledne lub nieznane polecenie"); }
+    else { displayResponse("[!] Bledne lub nieznane polecenie\nMoze zapomniales dodac dwukropek (:)?", 3); }
 }

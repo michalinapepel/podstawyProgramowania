@@ -44,11 +44,18 @@ int levelTwo(){
     
     clearTerminal();
     changeColor();
-    cout << "POZIOM 2\n\n";
+    cout << "POZIOM 2                                   \n";
+    cout << "                                           \n";
+    cout << "                                           ";
     birdFree();
-    cout << "\n\nBrawo, uwolniles ptaszka!";
+    cout << "                                           \n";
+    cout << "                                           \n";
+    cout << "Brawo, uwolniles ptaszka!                  \n";
+    cout << "                                           \n";
     displayResponse("");
     resetColor();
+    int a;
+    cin >> a;
     return 1;
 }
 

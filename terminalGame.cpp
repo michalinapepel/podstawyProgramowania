@@ -34,7 +34,7 @@ config parse_command_params(char** argv)
 
 void displayGreeting(string name) {
     clearTerminal();
-    displayResponse("Witaj " + name + ".", 3);
+    displayResponse("Witaj " + name + ".");
     clearTerminal();
     displayResponse("Zacznijmy od krotkiej instrukcji.", 5);
     displayInstruction();

@@ -15,10 +15,18 @@ void birdCage() {std::cout << R"(
 )";};
 
 void birdFree() {std::cout << R"(
-                 ,_
-                >' ) 
-                ( ( \
-                ''|\ 
+                                          ⠀
+                                          ⠀
+                                          ⠀
+                                          ⠀
+                 ,_                       ⠀
+                >' )                      ⠀
+                ( ( \                     ⠀
+                ''|\                      ⠀
+                                          ⠀
+                                          ⠀
+                                          ⠀
+                                          ⠀
 )";};
 
 void six1() {std::cout << R"(
