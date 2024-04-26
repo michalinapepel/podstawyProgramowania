@@ -54,8 +54,6 @@ int levelTwo(){
     cout << "                                           \n";
     displayResponse("");
     resetColor();
-    int a;
-    cin >> a;
     return 1;
 }
 
