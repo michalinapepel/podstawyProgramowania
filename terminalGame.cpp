@@ -63,6 +63,10 @@ int main(int argc, char* argv[]) {
     int win = 0;
     while (win == 0){
         switch(level){
+            case -1 :
+                displayHelp();
+                level = lastLevel;
+                break;
             case 0 :
                 menu(arg1); break;
             case 1 : if (levelOne() == 1) {

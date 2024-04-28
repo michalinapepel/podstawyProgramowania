@@ -46,28 +46,73 @@ void resetColor()
 }
 
 void displayInstruction() {
-    clearTerminal();
-    cout << R"(INSTRUKCJA
-        
+    bool isVisible = true;
+    while (isVisible) {
+        clearTerminal();
+        cout << R"(INSTRUKCJA
+            
 Twoje odpowiedzi powinny przyjmowac ponizszy format:
-    
+        
             ----------------------
             | polecenie:parametr |
             ----------------------
-    
-          na przyklad -> theme:dark
+        
+           na przyklad -> theme:dark
 
 W kazdej chwili mozesz wpisac /help, aby zobaczyc dostepne polecenia.
-    
-
-    
-    
-    
+        
+----------------------------------------------------------------------
+Aby przejść dalej wpisz /continue
 
 
-[i] To okno za chwile samo zniknie.
-    )";
-    displayResponse("", 12);
+)";
+        
+        array<string, 2> answer = getAnswer(true);
+        auto ans = [&answer] {
+            answer[0].erase(
+                std::remove_if(answer[0].begin(), answer[0].end(), ::isspace),
+                answer[0].end());
+            answer[1].erase(
+                std::remove_if(answer[1].begin(), answer[1].end(), ::isspace),
+                answer[1].end());
+        };
+        ans();
+        
+        if (answer[0] == "continue") { isVisible = false; }
+        else { displayResponse("[!] Teraz mozesz wpisac tylko /continue"); }
+    }
+}
+
+void displayHelp() {
+    bool isVisible = true;
+    while (isVisible) {
+        clearTerminal();
+        cout << "Dostepne komendy to:\n\n";
+        cout << "game:(exit|menu|reset|resetall)\t#Umozliwia sterowanie gra\n";
+        cout << "help\t\t\t\t#Wyswietla pomoc\n";
+        cout << "rotate:(number)\t\t\t#Obraca widok\n";
+        cout << "select:(number)\t\t\t#Wybiera jeden z dostepnych elementow\n";
+        cout << "text:(chars)\t\t\t#Wpisuje tekst\n";
+        cout << "theme:(light/dark)\t\t#Zmienia motyw\n\n";
+        cout << "-------------------------------------------------------------------\n";
+        cout << "Gdy wpisuje polecenie, ktore przyjmuje parametr powinno ono mieć format:\n\n     polecenie:parametr\n\nna przyklad -> theme:dark\n";
+        cout << "-------------------------------------------------------------------\n\n";
+        cout << "Wpisz /exit, aby zamknąć okno pomocy.\n\n";
+        
+        array<string, 2> answer = getAnswer(true);
+        auto ans = [&answer] {
+            answer[0].erase(
+                std::remove_if(answer[0].begin(), answer[0].end(), ::isspace),
+                answer[0].end());
+            answer[1].erase(
+                std::remove_if(answer[1].begin(), answer[1].end(), ::isspace),
+                answer[1].end());
+        };
+        ans();
+        
+        if (answer[0] == "exit") { isVisible = false; }
+        else { displayResponse("[!] Teraz mozesz wpisac tylko /exit"); }
+    }
 }
 
 void displayGoodbye() {
@@ -78,6 +123,7 @@ void displayGoodbye() {
 // Funkcja wywolujaca menu glowne
 
 int level = 0;
+int lastLevel;
 string arg1;
 
 void menu(string name) {
@@ -167,7 +213,7 @@ void menu(string name) {
 
 string arg2;
 
-array<string, 2> getAnswer() {
+array<string, 2> getAnswer(bool isLocked) {
     array<string, 2> answerArray;
     string answer = "";
     answerArray[0] = "";
@@ -186,55 +232,55 @@ array<string, 2> getAnswer() {
         answerArray[1] = "";
     }
     
-    // Obsluga polecenia help
-    if (answerArray[0] == "help") {
-        if (answerArray[1] == "") {
-            displayResponse("help\n:commands\t#Wyswietla dostepne polecenia\n:instruction\t#Wyswietla instrukcje obslugi gry", 4);
-        }
-        else if (answerArray[1] == "commands") {
-            displayResponse("Dostepne komendy to:\ngame:(exit|menu|reset|resetall)\t#Umozliwia sterowanie gra\nhelp:(commands|instruction)\t#Wyswietla pomoc\nrotate:(number)\t\t\t#Obraca widok\nselect:(number)\t\t\t#Wybiera jeden z dostepnych elementow\ntext:(chars)\t\t\t#Wpisuje tekst\ntheme:(light/dark)\t\t#Zmienia motyw", 8);
-        }
-        else if (answerArray[1] == "instruction") { displayInstruction(); }
-        else { displayResponse("[!] Podano nieprawidlowy parametr: polecenie /help go nie akceptuje", 3); }
-    }
-    
-    // Obsluga polecenia game
-    if (answerArray[0] == "game") {
-        if (answerArray[1] == "") {
-            displayResponse("game\n:exit\t#Konczy dzialanie aplikacji\n:menu\t\t#Wraca do menu glownego\n:reset\t\t#Resetuje poziom\n:resetall\t#Resetuje caly postep w grze!", 4);
-        }
-        else if (answerArray[1] == "exit") { displayGoodbye(); exit(0); }
-        else if (answerArray[1] == "menu") { level = 0; }
-        else if (answerArray[1] == "reset") { displayResponse("[i] Resetujemy dla Ciebie poziom!");}
-        else if (answerArray[1] == "resetall") {
-            ofstream gameRecord("gameRecord.txt");
-            gameRecord << "" << "0";
-            gameRecord.close();
-            level = 0;
-            displayResponse("[i] Caly postep zostal zresetowany!", 3);
-        }
-        else {
-            displayResponse("[!] Podano nieprawidlowy parametr: polecenie /game go nie akceptuje", 3);
-        }
-    }
-    
-    // Obsluga polecenia dev:(number)
-    
-    if (arg2 == "-d" || arg2 == "-ngd") {
-        if (answerArray[0] == "dev") {
-            int levelNumber = 0;
-            try {
-                levelNumber = stoi(answerArray[1]);
-                if (levelNumber > 0 && levelNumber < 4) {
-                    displayResponse("[D] Wykonano!");
-                    level = levelNumber;
-                }
-                else {
-                    displayResponse("[!] Podano nieprawidlowy parametr: nie znaleziono takiego poziomu", 3);
-                }
+    if (!isLocked) {
+        // Obsluga polecenia help
+        if (answerArray[0] == "help") {
+            if (answerArray[1] == "") {
+                lastLevel = level;
+                displayHelp();
+                level = -1;
             }
-            catch (const std::invalid_argument & e) { displayResponse("[!] Podano nieprawidlowy parametr: brak cyfr lub niepotrzebne znaki", 3); }
-            catch (const std::out_of_range & e) { displayResponse("[!] Podano nieprawidlowy parametr: liczba jest zbyt duza", 3); }
+            else { displayResponse("[!] Podano nieprawidlowy parametr:\npolecenie /help nie akceptuje jakichkolwiek parametrów!", 3); }
+        }
+        
+        // Obsluga polecenia game
+        if (answerArray[0] == "game") {
+            if (answerArray[1] == "") {
+                displayResponse("game\n:exit\t#Konczy dzialanie aplikacji\n:menu\t\t#Wraca do menu glownego\n:reset\t\t#Resetuje poziom\n:resetall\t#Resetuje caly postep w grze!", 4);
+            }
+            else if (answerArray[1] == "exit") { displayGoodbye(); exit(0); }
+            else if (answerArray[1] == "menu") { level = 0; }
+            else if (answerArray[1] == "reset") { displayResponse("[i] Resetujemy dla Ciebie poziom!");}
+            else if (answerArray[1] == "resetall") {
+                ofstream gameRecord("gameRecord.txt");
+                gameRecord << "" << "0";
+                gameRecord.close();
+                level = 0;
+                displayResponse("[i] Caly postep zostal zresetowany!", 3);
+            }
+            else {
+                displayResponse("[!] Podano nieprawidlowy parametr: polecenie /game go nie akceptuje", 3);
+            }
+        }
+        
+        // Obsluga polecenia dev:(number)
+        
+        if (arg2 == "-d" || arg2 == "-ngd") {
+            if (answerArray[0] == "dev") {
+                int levelNumber = 0;
+                try {
+                    levelNumber = stoi(answerArray[1]);
+                    if (levelNumber > 0 && levelNumber < 4) {
+                        displayResponse("[D] Wykonano!");
+                        level = levelNumber;
+                    }
+                    else {
+                        displayResponse("[!] Podano nieprawidlowy parametr: nie znaleziono takiego poziomu", 3);
+                    }
+                }
+                catch (const std::invalid_argument & e) { displayResponse("[!] Podano nieprawidlowy parametr: brak cyfr lub niepotrzebne znaki", 3); }
+                catch (const std::out_of_range & e) { displayResponse("[!] Podano nieprawidlowy parametr: liczba jest zbyt duza", 3); }
+            }
         }
     }
     
