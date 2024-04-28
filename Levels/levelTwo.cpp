@@ -52,7 +52,7 @@ int levelTwo(){
     cout << "                                           \n";
     cout << "Brawo, uwolniles ptaszka!                  \n";
     cout << "                                           \n";
-    displayResponse("");
+    displayResponse("", 3);
     resetColor();
     return 1;
 }
