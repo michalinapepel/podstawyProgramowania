@@ -95,9 +95,9 @@ void displayHelp() {
         cout << "text:(chars)\t\t\t#Wpisuje tekst\n";
         cout << "theme:(light/dark)\t\t#Zmienia motyw\n\n";
         cout << "-------------------------------------------------------------------\n";
-        cout << "Gdy wpisuje polecenie, ktore przyjmuje parametr powinno ono mieć format:\n\n     polecenie:parametr\n\nna przyklad -> theme:dark\n";
+        cout << "Gdy wpisujesz polecenie, ktore przyjmuje parametr, powinno ono miec format:\n\n     polecenie:parametr\n\nna przyklad -> theme:dark\n";
         cout << "-------------------------------------------------------------------\n\n";
-        cout << "Wpisz /exit, aby zamknąć okno pomocy.\n\n";
+        cout << "Wpisz /exit, aby zamknac okno pomocy.\n\n";
         
         array<string, 2> answer = getAnswer(true);
         auto ans = [&answer] {
@@ -240,7 +240,7 @@ array<string, 2> getAnswer(bool isLocked) {
                 displayHelp();
                 level = -1;
             }
-            else { displayResponse("[!] Podano nieprawidlowy parametr:\npolecenie /help nie akceptuje jakichkolwiek parametrów!", 3); }
+            else { displayResponse("[!] Podano nieprawidlowy parametr:\npolecenie /help nie akceptuje jakichkolwiek parametrow!", 3); }
         }
         
         // Obsluga polecenia game
