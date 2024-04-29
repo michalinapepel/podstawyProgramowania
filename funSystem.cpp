@@ -62,7 +62,7 @@ Twoje odpowiedzi powinny przyjmowac ponizszy format:
 W kazdej chwili mozesz wpisac /help, aby zobaczyc dostepne polecenia.
         
 ----------------------------------------------------------------------
-Aby przejść dalej wpisz /continue
+Aby przejsc dalej wpisz /continue
 
 
 )";
