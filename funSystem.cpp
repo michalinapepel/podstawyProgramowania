@@ -13,6 +13,8 @@
 #include <thread>
 using namespace std;
 
+// Obsluga terminala
+
 void clearTerminal()
 {
   cout << "\033[2J\033[1;1H";
@@ -211,6 +213,8 @@ void menu(string name) {
 
 }
 
+// Funkcja wczytujaca odpowiedz uzytkownika, zwraca tablice odpowiedzi
+
 string arg2;
 
 array<string, 2> getAnswer(bool isLocked) {
@@ -286,6 +290,8 @@ array<string, 2> getAnswer(bool isLocked) {
     
     return answerArray;
 }
+
+// Domyslne odpowiedzi w przypadku niewspieranej odpowiedzi
 
 void displayUnsupportedResponse(string command) {
     if (command == "rotate") { displayResponse("[?] Tu nie ma czego obrocic"); }

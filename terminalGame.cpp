@@ -59,7 +59,7 @@ int main(int argc, char* argv[]) {
     arg1 = cfg.arg1;
     arg2 = cfg.arg2;
     
-    // Petla sterujaca przebigem aplikacji - przelacza poziomy
+    // Petla sterujaca przebigem aplikacji - przelacza widoki (poziomy)
     int win = 0;
     while (win == 0){
         switch(level){
