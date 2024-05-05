@@ -18,7 +18,7 @@
 
 ###
 
-<p align="left">1. Uruchom dowolny terminal.<br>2. W terminalu uruchom plik wykonywalny, który przyjmuje do dwóch parametrów (opcjonalnie):<br>➡️ pierwszy parametr to imię użytkownika,<br>➡️ drugi parametr to opcje włączenia programu w trybie bez powitania (-ng) lub w trybie dewelopera (-d) oraz tryb złożony z tych dwóch (-ngd).<br>3. Przykładowe uruchomienie pliku wykonywalnego w systemie Windows:<br>terminalGame.exe Imie -d<br>4. Po uruchomieniu postępuj zgodnie z instrukcjami oraz wprowadzaj dane w wyznaczonym momencie.<br><br>Pamiętaj, że twój postęp zostanie zapisany 😊</p>
+<p align="left">1. Uruchom dowolny terminal.<br>2. W terminalu uruchom plik wykonywalny, który przyjmuje do dwóch parametrów (opcjonalnie):<br>➡️ pierwszy parametr to imię użytkownika,<br>➡️ drugi parametr to opcje włączenia programu w trybie bez powitania <code>-ng</code> lub w trybie dewelopera <code>-d</code> oraz tryb złożony z tych dwóch <code>-ngd</code>.<br>3. Przykładowe uruchomienie pliku wykonywalnego w systemie Windows:<br><code>terminalGame.exe Imie -d</code><br>4. Po uruchomieniu postępuj zgodnie z instrukcjami oraz wprowadzaj dane w wyznaczonym momencie.<br><br>Pamiętaj, że twój postęp zostanie zapisany 😊</p>
 
 ###
 
